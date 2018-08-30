@@ -1,16 +1,14 @@
 /**
  * Button 1 event listener - Get local text file data
  */
-document.getElementById('button1').addEventListener('click', getText);
+document.getElementById("button1").addEventListener("click", getText);
 
 function getText() {
-  fetch('../data.txt')
-    .then(function (res) {
-      return res.text();
-    })
-    .then(function (data) {
+  fetch("../data.txt")
+    .then(res => res.text())
+    .then(data => {
       console.log(data);
-      document.getElementById('output').innerHTML = `
+      document.getElementById("output").innerHTML = `
         <div class="card">
           <div class="card-header">
             Text File Data
@@ -21,22 +19,18 @@ function getText() {
         </div>
       `;
     })
-    .catch(function (err) {
-      console.log(err);
-    });
+    .catch(err => console.log(err));
 }
 
 /**
  * Button 2 event listener - Get local JSON data
  */
-document.getElementById('button2').addEventListener('click', getJSON);
+document.getElementById("button2").addEventListener("click", getJSON);
 
 function getJSON() {
-  fetch('../posts.json')
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (data) {
+  fetch("../posts.json")
+    .then(res => res.json())
+    .then(data => {
       console.log(data);
 
       // Bootstrap Card - begin
@@ -53,8 +47,12 @@ function getJSON() {
         output += `
           <li class="list-group-item">
             <ul class="list-group">
-              <li class="list-group-item"><strong>Title: </strong>${post.title}</li>
-              <li class="list-group-item"><strong>Body: </strong>${post.body}</li>
+              <li class="list-group-item"><strong>Title: </strong>${
+                post.title
+              }</li>
+              <li class="list-group-item"><strong>Body: </strong>${
+                post.body
+              }</li>
             </ul>
           </li>
         `;
@@ -66,24 +64,20 @@ function getJSON() {
         </div>
       `;
       // Output
-      document.getElementById('output').innerHTML = output;
+      document.getElementById("output").innerHTML = output;
     })
-    .catch(function (err) {
-      console.log(err);
-    });
+    .catch(err => console.log(err));
 }
 
 /**
  * Button 3 event listener - Get from external API
  */
-document.getElementById('button3').addEventListener('click', getExternal);
+document.getElementById("button3").addEventListener("click", getExternal);
 
 function getExternal() {
-  fetch('https://api.github.com/users')
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (data) {
+  fetch("https://api.github.com/users")
+    .then(res => res.json())
+    .then(data => {
       console.log(data);
 
       // Bootstrap Card - begin
@@ -100,10 +94,18 @@ function getExternal() {
         output += `
           <li class="list-group-item">
             <ul class="list-group">
-              <li class="list-group-item"><strong>Title : </strong>${user.id}</li>
-              <li class="list-group-item bg-light"><strong>Login : </strong>${user.login}</li>
-              <li class="list-group-item"><strong>Avatar URL : </strong>${user.avatar_url}</li>
-              <li class="list-group-item"><strong>Html URL : </strong>${user.html_url}</li>
+              <li class="list-group-item"><strong>Title : </strong>${
+                user.id
+              }</li>
+              <li class="list-group-item bg-light"><strong>Login : </strong>${
+                user.login
+              }</li>
+              <li class="list-group-item"><strong>Avatar URL : </strong>${
+                user.avatar_url
+              }</li>
+              <li class="list-group-item"><strong>Html URL : </strong>${
+                user.html_url
+              }</li>
             </ul>
           </li>
         `;
@@ -115,9 +117,7 @@ function getExternal() {
         </div>
       `;
       // Output
-      document.getElementById('output').innerHTML = output;
+      document.getElementById("output").innerHTML = output;
     })
-    .catch(function (err) {
-      console.log(err);
-    });
+    .catch(err => console.log(err));
 }

@@ -72,3 +72,52 @@ function getJSON() {
       console.log(err);
     });
 }
+
+/**
+ * Button 3 event listener - Get from external API
+ */
+document.getElementById('button3').addEventListener('click', getExternal);
+
+function getExternal() {
+  fetch('https://api.github.com/users')
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (data) {
+      console.log(data);
+
+      // Bootstrap Card - begin
+      let output = `
+        <div class="card">
+          <div class="card-header">
+            JSON External API Data
+          </div>
+          <ul class="list-group list-group-flush">
+      `;
+
+      // Bootstrap Card - body
+      data.forEach(user => {
+        output += `
+          <li class="list-group-item">
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Title : </strong>${user.id}</li>
+              <li class="list-group-item bg-light"><strong>Login : </strong>${user.login}</li>
+              <li class="list-group-item"><strong>Avatar URL : </strong>${user.avatar_url}</li>
+              <li class="list-group-item"><strong>Html URL : </strong>${user.html_url}</li>
+            </ul>
+          </li>
+        `;
+      });
+
+      // Bootstrap Card - end
+      output += `
+          </ul>
+        </div>
+      `;
+      // Output
+      document.getElementById('output').innerHTML = output;
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+}

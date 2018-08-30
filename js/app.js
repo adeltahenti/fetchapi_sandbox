@@ -47,12 +47,12 @@ function getJSON() {
         output += `
           <li class="list-group-item">
             <ul class="list-group">
-              <li class="list-group-item"><strong>Title: </strong>${
-                post.title
-              }</li>
-              <li class="list-group-item"><strong>Body: </strong>${
-                post.body
-              }</li>
+              <li class="list-group-item"><strong>Title: </strong>
+                ${post.title}
+              </li>
+              <li class="list-group-item"><strong>Body: </strong>
+                ${post.body}
+              </li>
             </ul>
           </li>
         `;
@@ -94,18 +94,18 @@ function getExternal() {
         output += `
           <li class="list-group-item">
             <ul class="list-group">
-              <li class="list-group-item"><strong>Title : </strong>${
-                user.id
-              }</li>
-              <li class="list-group-item bg-light"><strong>Login : </strong>${
-                user.login
-              }</li>
-              <li class="list-group-item"><strong>Avatar URL : </strong>${
-                user.avatar_url
-              }</li>
-              <li class="list-group-item"><strong>Html URL : </strong>${
-                user.html_url
-              }</li>
+              <li class="list-group-item"><strong>Title : </strong>
+                ${user.id}
+              </li>
+              <li class="list-group-item bg-light"><strong>Login : </strong>
+                ${user.login}
+              </li>
+              <li class="list-group-item"><strong>Avatar URL : </strong>
+                ${user.avatar_url}
+              </li>
+              <li class="list-group-item"><strong>Html URL : </strong>
+                ${user.html_url}
+              </li>
             </ul>
           </li>
         `;
